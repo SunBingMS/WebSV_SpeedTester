@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncGetDBCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parrKey" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="gfncGetDBCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gfncGetDBCountResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncGetDBValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pstrSql" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncGetDBValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gfncGetDBValueResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncDBReadSQL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pstrSQL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncDBReadSQLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gfncDBReadSQLResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="pds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncDBReadSQL2Log">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pstrSQL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncDBReadSQL2LogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gfncDBReadSQL2LogResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="pds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncDBExecuteSQL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pstrSQL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ptbleBasic">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="ptbleForm">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncDBExecuteSQLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gfncDBExecuteSQLResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncDBExecuteSQL_IMG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pstrSQL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ptableParam">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="ptbleBasic">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="ptbleForm">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncDBExecuteSQL_IMGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="gfncDBExecuteSQL_IMGResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncGetDBName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="gfncGetDBNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gfncGetDBNameResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pstrExpMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="gfncGetDBCountSoapIn">
+    <wsdl:part name="parameters" element="tns:gfncGetDBCount" />
+  </wsdl:message>
+  <wsdl:message name="gfncGetDBCountSoapOut">
+    <wsdl:part name="parameters" element="tns:gfncGetDBCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="gfncGetDBValueSoapIn">
+    <wsdl:part name="parameters" element="tns:gfncGetDBValue" />
+  </wsdl:message>
+  <wsdl:message name="gfncGetDBValueSoapOut">
+    <wsdl:part name="parameters" element="tns:gfncGetDBValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="gfncDBReadSQLSoapIn">
+    <wsdl:part name="parameters" element="tns:gfncDBReadSQL" />
+  </wsdl:message>
+  <wsdl:message name="gfncDBReadSQLSoapOut">
+    <wsdl:part name="parameters" element="tns:gfncDBReadSQLResponse" />
+  </wsdl:message>
+  <wsdl:message name="gfncDBReadSQL2LogSoapIn">
+    <wsdl:part name="parameters" element="tns:gfncDBReadSQL2Log" />
+  </wsdl:message>
+  <wsdl:message name="gfncDBReadSQL2LogSoapOut">
+    <wsdl:part name="parameters" element="tns:gfncDBReadSQL2LogResponse" />
+  </wsdl:message>
+  <wsdl:message name="gfncDBExecuteSQLSoapIn">
+    <wsdl:part name="parameters" element="tns:gfncDBExecuteSQL" />
+  </wsdl:message>
+  <wsdl:message name="gfncDBExecuteSQLSoapOut">
+    <wsdl:part name="parameters" element="tns:gfncDBExecuteSQLResponse" />
+  </wsdl:message>
+  <wsdl:message name="gfncDBExecuteSQL_IMGSoapIn">
+    <wsdl:part name="parameters" element="tns:gfncDBExecuteSQL_IMG" />
+  </wsdl:message>
+  <wsdl:message name="gfncDBExecuteSQL_IMGSoapOut">
+    <wsdl:part name="parameters" element="tns:gfncDBExecuteSQL_IMGResponse" />
+  </wsdl:message>
+  <wsdl:message name="gfncGetDBNameSoapIn">
+    <wsdl:part name="parameters" element="tns:gfncGetDBName" />
+  </wsdl:message>
+  <wsdl:message name="gfncGetDBNameSoapOut">
+    <wsdl:part name="parameters" element="tns:gfncGetDBNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CommonWebSVSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gfncGetDBCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">対象テーブルのWHERE句条件に当てはまるレコード件数を返す。</wsdl:documentation>
+      <wsdl:input message="tns:gfncGetDBCountSoapIn" />
+      <wsdl:output message="tns:gfncGetDBCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gfncGetDBValue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">対象｛テーブル, 列｝のWHERE句条件に当てはまる先頭レコードの値を返す。</wsdl:documentation>
+      <wsdl:input message="tns:gfncGetDBValueSoapIn" />
+      <wsdl:output message="tns:gfncGetDBValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gfncDBReadSQL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SELECT文実行</wsdl:documentation>
+      <wsdl:input message="tns:gfncDBReadSQLSoapIn" />
+      <wsdl:output message="tns:gfncDBReadSQLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gfncDBReadSQL2Log">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SELECT文実行</wsdl:documentation>
+      <wsdl:input message="tns:gfncDBReadSQL2LogSoapIn" />
+      <wsdl:output message="tns:gfncDBReadSQL2LogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gfncDBExecuteSQL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">INSERT,UPDATE,DELETE文実行</wsdl:documentation>
+      <wsdl:input message="tns:gfncDBExecuteSQLSoapIn" />
+      <wsdl:output message="tns:gfncDBExecuteSQLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gfncDBExecuteSQL_IMG">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">INSERT,UPDATE,DELETE文実行</wsdl:documentation>
+      <wsdl:input message="tns:gfncDBExecuteSQL_IMGSoapIn" />
+      <wsdl:output message="tns:gfncDBExecuteSQL_IMGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="gfncGetDBName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DB名を返す。</wsdl:documentation>
+      <wsdl:input message="tns:gfncGetDBNameSoapIn" />
+      <wsdl:output message="tns:gfncGetDBNameSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CommonWebSVSoap" type="tns:CommonWebSVSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncGetDBCount">
+      <soap:operation soapAction="http://tempuri.org/gfncGetDBCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncGetDBValue">
+      <soap:operation soapAction="http://tempuri.org/gfncGetDBValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncDBReadSQL">
+      <soap:operation soapAction="http://tempuri.org/gfncDBReadSQL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncDBReadSQL2Log">
+      <soap:operation soapAction="http://tempuri.org/gfncDBReadSQL2Log" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncDBExecuteSQL">
+      <soap:operation soapAction="http://tempuri.org/gfncDBExecuteSQL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncDBExecuteSQL_IMG">
+      <soap:operation soapAction="http://tempuri.org/gfncDBExecuteSQL_IMG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncGetDBName">
+      <soap:operation soapAction="http://tempuri.org/gfncGetDBName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CommonWebSVSoap12" type="tns:CommonWebSVSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncGetDBCount">
+      <soap12:operation soapAction="http://tempuri.org/gfncGetDBCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncGetDBValue">
+      <soap12:operation soapAction="http://tempuri.org/gfncGetDBValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncDBReadSQL">
+      <soap12:operation soapAction="http://tempuri.org/gfncDBReadSQL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncDBReadSQL2Log">
+      <soap12:operation soapAction="http://tempuri.org/gfncDBReadSQL2Log" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncDBExecuteSQL">
+      <soap12:operation soapAction="http://tempuri.org/gfncDBExecuteSQL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncDBExecuteSQL_IMG">
+      <soap12:operation soapAction="http://tempuri.org/gfncDBExecuteSQL_IMG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gfncGetDBName">
+      <soap12:operation soapAction="http://tempuri.org/gfncGetDBName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommonWebSV">
+    <wsdl:port name="CommonWebSVSoap" binding="tns:CommonWebSVSoap">
+      <soap:address location="http://win-aociqlsjc1t/skb/Common/SV/commonwebsv.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CommonWebSVSoap12" binding="tns:CommonWebSVSoap12">
+      <soap12:address location="http://win-aociqlsjc1t/skb/Common/SV/commonwebsv.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
